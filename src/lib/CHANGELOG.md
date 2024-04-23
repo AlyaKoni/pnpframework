@@ -10,12 +10,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Support for using Managed Identity with PnP Framework #1002 [koenzomers - Koen Zomers]
+
+### Changed
+
+- Optimizations to "TokenParser" performance #964 [fzbm - Florian Zink]
+- Added support for vanity URLs in the `GetSitePropertiesById` extension method #1012 [koenzomers - Koen Zomers]
+- Bumped version of Microsoft.Identity.Client package version to 4.60.3 #1014 [gautamdsheth - Gautam Sheth]
+- fix issue in ConfigureOnPremisesContext causing 403 forbidden responses on on-premise environments #1011 [nathan-swannet - Nathan Swannet]
+
+## [1.15.0]
+
+### Added
+
 - Add ListDeletedUsers method to UsersUtility #956 [wilecoyotegenius - Konrad K.]
 
 ### Changed
 
 - Add Site Collection App Catalog fields to BuilIinFieldId enum #952 [wilecoyotegenius - Konrad K.]
 - Upgrade to version 6.35.0 of System.IdentityModel.Tokens.Jwt #962 [eduardpaul - Eduard Paul]
+- Viva Announcement Library resulted in two pages libraries #975 [nils-a - Nils Andresen]
+- Fixed the GUID strings #969 [nils-a - Nils Andresen]
+- Improved list information in template MD conversion #989 [JGemkow - John Gemkow]
 
 ## [1.14.0]
 

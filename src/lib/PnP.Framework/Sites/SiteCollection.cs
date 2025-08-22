@@ -545,7 +545,11 @@ namespace PnP.Framework.Sites
                 delay: retryDelay,
                 azureEnvironment: azureEnvironment,
                 preferredDataLocation: siteCollectionCreationInformation.PreferredDataLocation,
-                assignedLabels: new Guid[] { sensitivityLabelId });
+                assignedLabels: new Guid[] { sensitivityLabelId },
+                siteAlias: siteCollectionCreationInformation.SiteAlias,
+                lcid: siteCollectionCreationInformation.Lcid,
+                hubSiteId: siteCollectionCreationInformation.HubSiteId,
+                siteDesignId: siteCollectionCreationInformation.SiteDesignId.HasValue ? siteCollectionCreationInformation.SiteDesignId.Value : Guid.Empty);
 
             if (group != null && !string.IsNullOrEmpty(group.SiteUrl))
             {
@@ -900,7 +904,7 @@ namespace PnP.Framework.Sites
             if (siteCollectionCreationInformation.Url.IndexOf("/sites/", StringComparison.InvariantCultureIgnoreCase) > -1 || siteCollectionCreationInformation.Url.IndexOf("/teams/", StringComparison.InvariantCultureIgnoreCase) > -1)
             {
                 // Split the URL by '/'
-                string[] urlParts = siteCollectionCreationInformation.Url.Split('/');
+                string[] urlParts = siteCollectionCreationInformation.Url.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
                 // Get the last part of the URL after "sites"
                 string lastPart = urlParts[urlParts.Length - 1];
